@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body { @apply bg-dl-bg text-dl-text font-sans antialiased; }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-dl-surface; }
+  ::-webkit-scrollbar-thumb { @apply bg-dl-border rounded-full; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-dl-accent hover:bg-dl-hover text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply border border-dl-border hover:border-dl-accent text-dl-muted hover:text-dl-text px-6 py-2.5 rounded-lg transition-all duration-200;
+  }
+  .card {
+    @apply bg-dl-card border border-dl-border rounded-xl p-5;
+  }
+  .badge-easy   { @apply bg-green-900/40 text-green-400 text-xs font-medium px-2 py-0.5 rounded-full; }
+  .badge-medium { @apply bg-yellow-900/40 text-yellow-400 text-xs font-medium px-2 py-0.5 rounded-full; }
+  .badge-hard   { @apply bg-red-900/40 text-red-400 text-xs font-medium px-2 py-0.5 rounded-full; }
+  .input {
+    @apply w-full bg-dl-surface border border-dl-border rounded-lg px-4 py-2.5 text-white
+           placeholder-dl-muted focus:outline-none focus:border-dl-accent transition-colors;
+  }
+}
+
+/* Fog overlay */
+.fog-overlay {
+  position: absolute; inset: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(8,8,15,0.65);
+  z-index: 20;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Freeze pulse */
+@keyframes freeze-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(116,185,255,0.5); }
+  50%      { box-shadow: 0 0 0 8px rgba(116,185,255,0); }
+}
+.freeze-border { animation: freeze-pulse 1s ease-in-out infinite; border-color: #74b9ff !important; }
