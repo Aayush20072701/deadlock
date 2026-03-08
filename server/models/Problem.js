@@ -16,7 +16,6 @@ const problemSchema = new mongoose.Schema({
   tags:   [String],
   source: { type: String, default: 'custom' },
 
-  // These are only used for old Codeforces problems (can be ignored for seeded problems)
   cfContestId: { type: Number },
   cfIndex:     { type: String },
 
